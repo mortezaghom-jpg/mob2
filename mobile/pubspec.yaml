@@ -20,7 +20,7 @@ dependencies:
   http: ^1.2.1
 
   # تبدیل گفتار فارسی به متن
-  speech_to_text: ^7.0.0
+  speech_to_text: ^6.6.0
   permission_handler: ^11.3.1
 
   # تاریخ شمسی
