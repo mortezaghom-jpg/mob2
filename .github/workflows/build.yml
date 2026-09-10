@@ -15,6 +15,10 @@ jobs:
         working-directory: mobile
         run: |
           sed -i 's#</application>#    <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false" />\n</application>#' android/app/src/main/AndroidManifest.xml
+      - name: Update Kotlin version
+        working-directory: mobile
+        run: |
+          sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "1.9.22"/' android/settings.gradle
       - name: Get packages
         working-directory: mobile
         run: flutter pub get
