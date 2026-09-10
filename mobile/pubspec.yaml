@@ -1,0 +1,59 @@
+name: hesabyar_tanakhah
+description: حساب‌یار هوشمند تنخواه - ثبت صوتی هزینه با هوش مصنوعی فارسی
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # دیتابیس محلی (Offline-first)
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  path_provider: ^2.1.3
+
+  # شبکه برای ارتباط با Backend
+  http: ^1.2.1
+
+  # تبدیل گفتار فارسی به متن
+  speech_to_text: ^7.0.0
+  permission_handler: ^11.3.1
+
+  # تاریخ شمسی
+  shamsi_date: ^1.1.1
+  persian_number_utility: ^1.0.7
+
+  # مدیریت وضعیت ساده
+  provider: ^6.1.2
+
+  # ذخیره امن تنظیمات (مثل آدرس Backend) - نه کلید AI (که اصلا در اپ نیست)
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.2
+
+  # نمودار برای گزارش‌ها
+  fl_chart: ^0.68.0
+
+  # ورود با اثر انگشت/PIN
+  local_auth: ^2.3.0
+
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # برای فونت فارسی، فایل فونت (مثلا Vazirmatn) را در assets/fonts قرار داده
+  # و اینجا رجیستر کنید:
+  # fonts:
+  #   - family: Vazirmatn
+  #     fonts:
+  #       - asset: assets/fonts/Vazirmatn-Regular.ttf
+  #       - asset: assets/fonts/Vazirmatn-Bold.ttf
+  #         weight: 700
