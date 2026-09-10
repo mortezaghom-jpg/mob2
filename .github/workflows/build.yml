@@ -8,10 +8,16 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.0'
-      - run: flutter create --org com.hesabyar --project-name hesabyar_tanakhah .
-      - run: flutter pub get
-      - run: flutter build apk --release
+      - name: Generate platform folders
+        working-directory: mobile
+        run: flutter create --org com.hesabyar --project-name hesabyar_tanakhah .
+      - name: Get packages
+        working-directory: mobile
+        run: flutter pub get
+      - name: Build APK
+        working-directory: mobile
+        run: flutter build apk --release
       - uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: mobile/build/app/outputs/flutter-apk/app-release.apk
