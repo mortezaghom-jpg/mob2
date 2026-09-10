@@ -7,10 +7,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-                              flutter-version: '3.22.2'
+          flutter-version: '3.24.0'
       - name: Generate platform folders
         working-directory: mobile
         run: flutter create --org com.hesabyar --project-name hesabyar_tanakhah .
+      - name: Disable Impeller rendering workaround
+        working-directory: mobile
+        run: |
+          sed -i 's#</application>#    <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false" />\n</application>#' android/app/src/main/AndroidManifest.xml
       - name: Get packages
         working-directory: mobile
         run: flutter pub get
