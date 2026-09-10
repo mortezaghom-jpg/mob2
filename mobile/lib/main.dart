@@ -32,7 +32,7 @@ class HesabyarApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorSchemeSeed: const Color(0xFF1E6F5C),
-        fontFamily: 'Vazirmatn', // فونت فارسی - فایل را در assets قرار دهید
+       // fontFamily: 'Vazirmatn', // فونت فارسی - فایل را در assets قرار دهید
         brightness: Brightness.light,
       ),
       builder: (context, child) {
