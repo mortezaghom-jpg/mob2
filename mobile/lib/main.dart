@@ -8,7 +8,7 @@ import 'screens/categories_screen.dart';
 import 'screens/reports_screen.dart';
 import 'screens/settings_screen.dart';
 import 'services/db_helper.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DbHelper.instance.database; // ساخت/باز کردن دیتابیس SQLite محلی در استارت آپ
@@ -24,9 +24,10 @@ class HesabyarApp extends StatelessWidget {
       title: 'حساب‌یار هوشمند تنخواه',
       debugShowCheckedModeBanner: false,
       locale: const Locale('fa', 'IR'),
-      localizationsDelegates: const [
-        // برای پشتیبانی کامل RTL/فارسی، پکیج flutter_localizations را در
-        // pubspec اضافه و اینجا GlobalMaterialLocalizations.delegate و ... را وصل کنید.
+            localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [Locale('fa', 'IR')],
       theme: ThemeData(
