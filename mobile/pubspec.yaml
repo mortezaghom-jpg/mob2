@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-
+    flutter_localizations:
+    sdk: flutter
   # دیتابیس محلی (Offline-first)
   sqflite: ^2.3.3
   path: ^1.9.0
