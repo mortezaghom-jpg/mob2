@@ -23,28 +23,4 @@ jobs:
         working-directory: mobile
         run: |
           sed -i -E 's/compileSdk(Version)?[[:space:]]*=?[[:space:]]*flutter\.compileSdkVersion/compileSdk 34/' android/app/build.gradle
-      - name: Force compileSdk 34 for library modules (after evaluate)
-        working-directory: mobile
-        run: |
-          cat >> android/build.gradle << 'EOF'
-
-          subprojects { proj ->
-              if (proj.name != "app") {
-                  proj.afterEvaluate {
-                      if (proj.hasProperty('android')) {
-                          proj.android.compileSdkVersion 34
-                      }
-                  }
-              }
-          }
-          EOF
-      - name: Get packages
-        working-directory: mobile
-        run: flutter pub get
-      - name: Build APK
-        working-directory: mobile
-       run: flutter build apk --release --no-enable-impeller
-      - uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: mobile/build/app/outputs/flutter-apk/app-release.apk
+      - name:
