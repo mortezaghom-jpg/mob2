@@ -10,8 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-    flutter_localizations:
+  flutter_localizations:
     sdk: flutter
+
   # دیتابیس محلی (Offline-first)
   sqflite: ^2.3.3
   path: ^1.9.0
@@ -50,11 +51,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # برای فونت فارسی، فایل فونت (مثلا Vazirmatn) را در assets/fonts قرار داده
-  # و اینجا رجیستر کنید:
-  # fonts:
-  #   - family: Vazirmatn
-  #     fonts:
-  #       - asset: assets/fonts/Vazirmatn-Regular.ttf
-  #       - asset: assets/fonts/Vazirmatn-Bold.ttf
-  #         weight: 700
+  # برای فونت فارسی، فایل فونت
