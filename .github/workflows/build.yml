@@ -24,13 +24,12 @@ jobs:
         run: |
           cat >> android/build.gradle << 'EOF'
 
-          subprojects {
-              afterEvaluate { proj ->
-                  if (proj.hasProperty('android')) {
-                      proj.android {
-                          compileSdkVersion 34
-                      }
-                  }
+          subprojects { proj ->
+              proj.plugins.withId("com.android.application") {
+                  proj.android.compileSdkVersion 34
+              }
+              proj.plugins.withId("com.android.library") {
+                  proj.android.compileSdkVersion 34
               }
           }
           EOF
