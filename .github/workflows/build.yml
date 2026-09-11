@@ -19,15 +19,18 @@ jobs:
         working-directory: mobile
         run: |
           sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "1.9.22"/' android/settings.gradle
-      - name: Force compileSdk 34 for all modules
+      - name: Patch app compileSdk directly
+        working-directory: mobile
+        run: |
+          sed -i -E 's/compileSdk(Version)?[[:space:]]*=?[[:space:]]*flutter\.compileSdkVersion/compileSdk 34/' android/app/build.gradle
+          echo "----- Resulting lines: -----"
+          grep -n "compileSdk" android/app/build.gradle
+      - name: Force compileSdk 34 for library modules
         working-directory: mobile
         run: |
           cat >> android/build.gradle << 'EOF'
 
           subprojects { proj ->
-              proj.plugins.withId("com.android.application") {
-                  proj.android.compileSdkVersion 34
-              }
               proj.plugins.withId("com.android.library") {
                   proj.android.compileSdkVersion 34
               }
