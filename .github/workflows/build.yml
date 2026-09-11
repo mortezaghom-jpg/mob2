@@ -19,10 +19,21 @@ jobs:
         working-directory: mobile
         run: |
           sed -i 's/id "org.jetbrains.kotlin.android" version "[^"]*"/id "org.jetbrains.kotlin.android" version "1.9.22"/' android/settings.gradle
-      - name: Pin compileSdk to 34
+      - name: Force compileSdk 34 for all modules
         working-directory: mobile
         run: |
-          sed -i 's/compileSdk flutter.compileSdkVersion/compileSdk 34/' android/app/build.gradle
+          cat >> android/build.gradle << 'EOF'
+
+          subprojects {
+              afterEvaluate { proj ->
+                  if (proj.hasProperty('android')) {
+                      proj.android {
+                          compileSdkVersion 34
+                      }
+                  }
+              }
+          }
+          EOF
       - name: Get packages
         working-directory: mobile
         run: flutter pub get
